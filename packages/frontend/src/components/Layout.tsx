@@ -7,11 +7,9 @@ function Placeholder() {
 
 export default function Layout({ children }: { children: any }) {
   return (
-    <div>
-      <div>
-        <Header />
-        <Suspense fallback={<Placeholder />}>{children}</Suspense>
-      </div>
+    <div className='layout'>
+      <Header />
+      <Suspense fallback={<Placeholder />}>{children}</Suspense>
     </div>
   );
 }
