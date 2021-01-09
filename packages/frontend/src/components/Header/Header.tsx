@@ -3,7 +3,7 @@ import React from 'react';
 export default function Header() {
   return (
     <header>
-      <h2>Header from component header</h2>
+      <h1>Find Movies, TV shows and more ...</h1>
     </header>
   );
 }
