@@ -22,7 +22,7 @@ export default function Homepage() {
           />
         </div>
       ) : (
-        <Movie data={data} setSearched={setSearched} />
+        <Movie data={data} />
       )}
     </div>
   );

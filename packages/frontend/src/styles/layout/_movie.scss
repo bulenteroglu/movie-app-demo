@@ -60,6 +60,27 @@
   color: #fff;
 }
 
+.movie__remove {
+  margin-top: 1rem;
+  margin-left: auto;
+  width: 3rem;
+  color: #fff;
+}
+
+.movie__add:hover {
+  color: #34d399;
+  transition: all 200ms;
+}
+
+.movie__remove:hover {
+  color: #991b1b;
+  transition: all 200ms;
+}
+
+.fav {
+  transition: all 200ms;
+}
+
 .movie__border {
   margin-top: 1rem;
   border-bottom: 2px solid #7f7f7f36;

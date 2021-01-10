@@ -3,18 +3,26 @@ import clsx from 'clsx';
 
 type Props = {
   data: any;
-  setSearched: any;
 };
 
-export default function Movie({ data, setSearched }: Props) {
+export default function Movie({ data }: Props) {
   const [movie, setMovie] = useState(data);
   const [genreList, setGenreList] = useState([]);
+  const [fav, setFav] = useState(false);
 
   useEffect(() => {
     setGenreList(movie.Genre.split(','));
   }, []);
 
-  console.log(genreList);
+  useEffect(() => {
+    const existingFav = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+    existingFav.push(movie);
+
+    if (fav) {
+      localStorage.setItem('favorites', JSON.stringify(existingFav));
+    }
+  }, [fav]);
 
   function convertMin(num: string) {
     const getRidOfText = num.replace(/[^0-9]/g, '');
@@ -25,6 +33,12 @@ export default function Movie({ data, setSearched }: Props) {
 
     return hours + 'h ' + minutes + 'min';
   }
+
+  function handleFavourite() {
+    setFav(!fav);
+  }
+
+  console.log(fav);
 
   return (
     <div className='movie'>
@@ -68,18 +82,36 @@ export default function Movie({ data, setSearched }: Props) {
           <div className='movie__info'>Gross: {data.BoxOffice}</div>
           <div className='movie__info'>Rated: {data.Rated}</div>
           <div className='movie__info'>Release: {data.Released}</div>
-          <svg
-            className='movie__add'
-            fill='currentColor'
-            viewBox='0 0 20 20'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              fillRule='evenodd'
-              d='M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z'
-              clipRule='evenodd'
-            />
-          </svg>
+
+          {fav ? (
+            <svg
+              onClick={() => handleFavourite()}
+              className='movie__remove fav'
+              fill='currentColor'
+              viewBox='0 0 20 20'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                fillRule='evenodd'
+                d='M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z'
+                clipRule='evenodd'
+              />
+            </svg>
+          ) : (
+            <svg
+              onClick={() => handleFavourite()}
+              className='movie__add'
+              fill='currentColor'
+              viewBox='0 0 20 20'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                fillRule='evenodd'
+                d='M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z'
+                clipRule='evenodd'
+              />
+            </svg>
+          )}
         </div>
       </div>
       <div className='movie__border' />
