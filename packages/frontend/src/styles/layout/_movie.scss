@@ -7,6 +7,49 @@
   padding: 0rem 2rem;
 }
 
+.movie__backBtn {
+  margin-top: 1.5rem;
+  width: 2.3em;
+  background-color: $movie-background;
+  border: 1px dashed #fff;
+  border-radius: 9999px;
+  padding: 0.5rem;
+}
+
+.movie__backBtn:hover,
+.movie__add:hover,
+.movie__remove:hover {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-10deg);
+  }
+  20% {
+    transform: rotate(12deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(9deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 .movie__topWrapper {
   margin-top: 0.8rem;
   display: flex;
@@ -93,7 +136,7 @@
 }
 
 .movie__title {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   font-size: 1.4rem;
 }
 

@@ -3,26 +3,23 @@ import clsx from 'clsx';
 
 type Props = {
   data: any;
+  setData: any;
 };
 
-export default function Movie({ data }: Props) {
+export default function Movie({ data, setData }: Props) {
   const [movie, setMovie] = useState(data);
   const [genreList, setGenreList] = useState([]);
   const [fav, setFav] = useState(false);
 
   useEffect(() => {
     setGenreList(movie.Genre.split(','));
-  }, []);
 
-  useEffect(() => {
     const existingFav = JSON.parse(localStorage.getItem('favorites') || '[]');
 
-    existingFav.push(movie);
+    const found = existingFav.find((fav: any) => fav.imdbID === movie.imdbID);
 
-    if (fav) {
-      localStorage.setItem('favorites', JSON.stringify(existingFav));
-    }
-  }, [fav]);
+    setFav(!!found);
+  }, []);
 
   function convertMin(num: string) {
     const getRidOfText = num.replace(/[^0-9]/g, '');
@@ -35,13 +32,60 @@ export default function Movie({ data }: Props) {
   }
 
   function handleFavourite() {
-    setFav(!fav);
-  }
+    const existingFav = JSON.parse(localStorage.getItem('favorites') || '[]');
 
-  console.log(fav);
+    if (existingFav.length > 1) {
+      const found = existingFav.find((fav: any) => fav.imdbID === movie.imdbID);
+
+      if (!!found === true) {
+        const filter = existingFav.filter(
+          (fav: any) => fav.imdbID !== movie.imdbID
+        );
+        existingFav.push(movie);
+        localStorage.setItem('favorites', JSON.stringify(filter));
+        setFav(false);
+      } else {
+        existingFav.push(movie);
+        localStorage.setItem('favorites', JSON.stringify(existingFav));
+        setFav(true);
+      }
+    } else {
+      existingFav.push(movie);
+      localStorage.setItem('favorites', JSON.stringify(existingFav));
+      setFav(true);
+    }
+
+    // localStorage.setItem('favorites', JSON.stringify(existingFav));
+
+    // if (fav) {
+    //   if (!!found) {
+    //     let newArray = existingFav.filter(
+    //       (fav: any) => fav.imdbID !== movie.imdbID
+    //     );
+    //     localStorage.setItem('favorites', JSON.stringify(newArray));
+    //   } else {
+    //     existingFav.push(movie);
+
+    //     localStorage.setItem('favorites', JSON.stringify(existingFav));
+    //   }
+    // }
+  }
 
   return (
     <div className='movie'>
+      <svg
+        onClick={() => setData([])}
+        className='movie__backBtn'
+        fill='currentColor'
+        viewBox='0 0 20 20'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path
+          fillRule='evenodd'
+          d='M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z'
+          clipRule='evenodd'
+        />
+      </svg>
       <div className='movie__title'>
         <h1>
           {data.Title} <span className='movie__date'>({data.Year})</span>

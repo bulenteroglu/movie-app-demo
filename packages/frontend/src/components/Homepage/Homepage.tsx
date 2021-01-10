@@ -20,9 +20,10 @@ export default function Homepage() {
             setData={setData}
             setSearched={setSearched}
           />
+          {/* <Favourites /> */}
         </div>
       ) : (
-        <Movie data={data} />
+        <Movie data={data} setData={setData} />
       )}
     </div>
   );
