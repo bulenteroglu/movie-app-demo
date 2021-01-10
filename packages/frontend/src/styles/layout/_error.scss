@@ -1,0 +1,20 @@
+.error {
+  margin-top: 0.5rem;
+  background-color: $error-background;
+  padding: 0.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.error__svg {
+  width: 1rem;
+  color: $error-message;
+  margin-right: 0.5rem;
+}
+
+.error__message {
+  color: $error-message;
+  font-size: 0.75rem;
+  font-weight: 300;
+}

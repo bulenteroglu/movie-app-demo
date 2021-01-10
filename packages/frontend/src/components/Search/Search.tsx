@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function Search() {
+type Props = {
+  checked: boolean;
+};
+
+export default function Search({ checked }: Props) {
   const [userSearch, setUserSearch] = useState('');
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // axios
-    //   .get(`http://www.omdbapi.com/?t=${userSearch}&apikey=3901aa62`)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   });
+
+    axios
+      .get(
+        `http://www.omdbapi.com/?${
+          checked ? `t=${userSearch}` : `i=${userSearch}`
+        }&apikey=3901aa62`
+      )
+      .then((res) => {
+        console.log(res.data);
+      });
+
     setUserSearch('');
   }
 
@@ -36,9 +46,10 @@ export default function Search() {
           }
           className='search__input'
           type='text'
-          placeholder='Search movies...'
+          placeholder='Search Movie...'
         />
       </form>
+      {/* {!checked && <ErrorMessage />} */}
     </div>
   );
 }
