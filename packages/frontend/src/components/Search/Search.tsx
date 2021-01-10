@@ -3,9 +3,10 @@ import axios from 'axios';
 
 type Props = {
   checked: boolean;
+  setData: any;
 };
 
-export default function Search({ checked }: Props) {
+export default function Search({ checked, setData }: Props) {
   const [userSearch, setUserSearch] = useState('');
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -18,7 +19,7 @@ export default function Search({ checked }: Props) {
         }&apikey=3901aa62`
       )
       .then((res) => {
-        console.log(res.data);
+        setData(res.data);
       });
 
     setUserSearch('');
@@ -49,7 +50,6 @@ export default function Search({ checked }: Props) {
           placeholder='Search Movie...'
         />
       </form>
-      {/* {!checked && <ErrorMessage />} */}
     </div>
   );
 }

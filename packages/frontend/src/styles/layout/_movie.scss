@@ -1,0 +1,67 @@
+.movie {
+  display: flex;
+  flex-direction: column;
+  background-color: $movie-background;
+  color: #ffff;
+  height: 100vh;
+  padding: 0rem 2rem;
+}
+
+.movie__topWrapper {
+  display: flex;
+  position: relative;
+}
+
+.movie__add {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 3rem;
+  color: #fff;
+}
+
+.movie__border {
+  margin-top: 1rem;
+  border-bottom: 2px solid #7f7f7f36;
+}
+
+.movie__poster {
+  margin-top: 3rem;
+  width: 10rem;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.movie__title {
+  margin-top: 0.7rem;
+  font-size: 1.4rem;
+}
+
+.movie__date {
+  font-size: 1rem;
+  color: #7f7f7f;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+}
+
+.movie__genreList {
+  margin-top: 0.7rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.genre__item {
+  margin: 0.2rem 0.6rem 0.8rem 0rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 9999px;
+  color: #ffff;
+}
+
+$colors: #991b1b, #4c1d95, #2563eb, #1e40af, #064e3b, #831843;
+
+@for $i from 1 through length($colors) {
+  li:nth-child(#{length($colors)}n + #{$i}) {
+    background: lighten(nth($colors, $i), 20%);
+  }
+}
