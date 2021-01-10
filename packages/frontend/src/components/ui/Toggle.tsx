@@ -17,15 +17,14 @@ export default function Toggle({ checked = false }: Props) {
         role='checkbox'
         tabIndex={0}
         aria-checked={toggle}
-        className={clsx('toggle__main', toggle ? 'checked' : '')}
+        className={clsx('toggle__main', toggle && 'checked')}
       >
         <span
           onClick={handleClick}
           aria-hidden='true'
-          className={clsx('toggle__button', toggle ? 'toggle__right' : '')}
+          className={clsx('toggle__button', toggle && 'toggle__right')}
         ></span>
       </span>
-      <span className='toggle__label'>{toggle ? 'id' : 'title'}</span>
     </label>
   );
 }
