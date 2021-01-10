@@ -34,7 +34,7 @@ export default function Movie({ data, setData }: Props) {
   function handleFavourite() {
     const existingFav = JSON.parse(localStorage.getItem('favorites') || '[]');
 
-    if (existingFav.length > 1) {
+    if (existingFav.length > 0) {
       const found = existingFav.find((fav: any) => fav.imdbID === movie.imdbID);
 
       if (!!found === true) {
@@ -54,21 +54,6 @@ export default function Movie({ data, setData }: Props) {
       localStorage.setItem('favorites', JSON.stringify(existingFav));
       setFav(true);
     }
-
-    // localStorage.setItem('favorites', JSON.stringify(existingFav));
-
-    // if (fav) {
-    //   if (!!found) {
-    //     let newArray = existingFav.filter(
-    //       (fav: any) => fav.imdbID !== movie.imdbID
-    //     );
-    //     localStorage.setItem('favorites', JSON.stringify(newArray));
-    //   } else {
-    //     existingFav.push(movie);
-
-    //     localStorage.setItem('favorites', JSON.stringify(existingFav));
-    //   }
-    // }
   }
 
   return (
