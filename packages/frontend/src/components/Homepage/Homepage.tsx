@@ -6,20 +6,23 @@ import Header from '../Header/Header';
 
 export default function Homepage() {
   const [checked, setChecked] = useState(true);
+  const [searched, setSearched] = useState(false);
   const [data, setData] = useState<any[]>([]);
-
-  console.log(data);
 
   return (
     <div>
-      {false ? (
+      {data.length < 1 ? (
         <div className='layout'>
           <Header />
           <Toggle checked={checked} setChecked={setChecked} />
-          <Search checked={checked} setData={setData} />
+          <Search
+            checked={checked}
+            setData={setData}
+            setSearched={setSearched}
+          />
         </div>
       ) : (
-        <Movie data={data} />
+        <Movie data={data} setSearched={setSearched} />
       )}
     </div>
   );
