@@ -8,8 +8,77 @@
 }
 
 .movie__topWrapper {
+  margin-top: 3rem;
   display: flex;
   position: relative;
+}
+
+.movie__infoWrapper {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie__ratingWrapper {
+  display: flex;
+  align-items: center;
+  height: 1rem;
+}
+
+.movie__rating {
+  width: 1.2rem;
+}
+
+.low {
+  color: #f87171;
+}
+
+.med {
+  color: #fbbf24;
+}
+
+.high {
+  color: #34d399;
+}
+
+.movie__ratingNumber {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.movie__runtime {
+  margin-top: 1rem;
+  color: #7f7f7f;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.movie__director {
+  margin-top: 1rem;
+  color: #7f7f7f;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.movie__boxoffice {
+  margin-top: 1rem;
+  color: #7f7f7f;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.movie__rated {
+  margin-top: 1rem;
+  color: #7f7f7f;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.movie__releasedate {
+  margin-top: 1rem;
+  color: #7f7f7f;
+  font-size: 0.8rem;
+  font-style: italic;
 }
 
 .movie__add {
@@ -26,9 +95,8 @@
 }
 
 .movie__poster {
-  margin-top: 3rem;
   width: 10rem;
-  border-radius: 25px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
