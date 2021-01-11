@@ -23,6 +23,8 @@ export default function Homepage() {
             setSearched={setSearched}
           />
           <Favourites
+            setData={setData}
+            setSearched={setSearched}
             data={JSON.parse(localStorage.getItem('favorites') || '[]')}
           />
         </div>
