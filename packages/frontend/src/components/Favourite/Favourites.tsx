@@ -29,9 +29,20 @@ function FavouriteMovie({ movie, setSearched, setData }: any) {
 }
 
 export default function Favourites({ data, setSearched, setData }: Props) {
+  function deleteAllFavourites() {
+    setSearched(false);
+    localStorage.clear();
+  }
+
   return (
     <div className='favourite__section'>
       <span className='favourites__title'>Your favourites ({data.length})</span>
+
+      {data && data.length > 0 && (
+        <div className='favourite__danger' onClick={deleteAllFavourites}>
+          Delete all favourites?
+        </div>
+      )}
       <div className='favourites'>
         {data &&
           data.map((movie: any, i: number) => (
