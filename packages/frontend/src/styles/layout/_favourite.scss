@@ -8,6 +8,7 @@
   font-size: 0.6rem;
   color: #fca5a5;
   font-style: italic;
+  cursor: pointer;
 }
 
 .favourites__title {
@@ -23,6 +24,7 @@
   margin: 0.5rem;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
+  cursor: pointer;
 }
 
 .favourite__poster {
@@ -31,4 +33,8 @@
 
 .favourite__title {
   margin-left: 1rem;
+}
+
+.noFav {
+  font-size: 1rem;
 }

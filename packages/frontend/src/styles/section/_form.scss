@@ -1,9 +1,13 @@
 .search {
   margin: 0.5rem 0 1.3rem 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search__form {
+  width: 100%;
   padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
@@ -15,6 +19,11 @@
   height: 1.5rem;
   width: 1.5rem;
   margin-right: 0.6rem;
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
 }
 
 .search__input {
@@ -32,4 +41,48 @@
 .search__input:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.movie__remove:hover {
+  animation-name: wave-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-10deg);
+  }
+  20% {
+    transform: rotate(12deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(9deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.search__random {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  background-color: $toggle-checked;
+  width: 7rem;
+  text-align: center;
+  border-radius: 9px;
+  cursor: pointer;
 }

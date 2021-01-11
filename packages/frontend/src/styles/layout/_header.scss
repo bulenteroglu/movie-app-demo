@@ -1,8 +1,27 @@
 .header {
-  margin: 5rem 0 2rem 0;
+  margin: 0rem 0 2rem 0;
   width: 20rem;
 }
+
+.header__info {
+  display: flex;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.logo {
+  width: 4rem;
+  color: #fff;
+  margin-left: 0.5rem;
+}
+
 .header_title {
   font-size: 1.7rem;
   font-weight: 700;
+}
+
+.header__name {
+  color: gray;
+  font-size: 0.7rem;
+  font-style: italic;
 }

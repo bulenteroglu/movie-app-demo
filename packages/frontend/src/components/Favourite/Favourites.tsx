@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import noImageFound from '../../assets/no-image-found.png';
+import { divide } from 'numeral';
 
 type Props = {
   data: any;
@@ -36,11 +37,19 @@ export default function Favourites({ data, setSearched, setData }: Props) {
 
   return (
     <div className='favourite__section'>
-      <span className='favourites__title'>Your favourites ({data.length})</span>
+      {data && data.length > 0 ? (
+        <>
+          <span className='favourites__title'>
+            Your favourites ({data.length})
+          </span>
 
-      {data && data.length > 0 && (
-        <div className='favourite__danger' onClick={deleteAllFavourites}>
-          Delete all favourites?
+          <div className='favourite__danger' onClick={deleteAllFavourites}>
+            Delete all favourites?
+          </div>
+        </>
+      ) : (
+        <div className='favourites__title noFav'>
+          Oh no! How about we favourite some movies?
         </div>
       )}
       <div className='favourites'>
