@@ -1,6 +1,20 @@
+$screen-lg-min: 1200px;
+
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
 .layout {
   background-color: $movie-background;
   min-height: 100vh;
-  padding: 1rem 2.5rem;
+  padding: 5rem 2.5rem;
   color: #fff;
+
+  @include lg {
+    padding: 5rem 20rem;
+  }
 }
+
+// Large tablets and desktops

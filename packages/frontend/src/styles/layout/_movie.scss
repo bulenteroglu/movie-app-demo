@@ -5,6 +5,10 @@
   color: #ffff;
   min-height: 100vh;
   padding: 0rem 2rem;
+
+  @include lg {
+    padding: 5rem 20rem;
+  }
 }
 
 .movie__backBtn {
