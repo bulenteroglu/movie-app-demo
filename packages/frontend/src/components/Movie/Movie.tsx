@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import noImageFound from '../../assets/no-image-found.png';
 
 type Props = {
   data: any;
@@ -77,7 +78,11 @@ export default function Movie({ data, setData }: Props) {
         </h1>
       </div>
       <div className='movie__topWrapper'>
-        <img className='movie__poster' src={data.Poster} alt={data.Title} />
+        <img
+          className='movie__poster'
+          src={movie.Poster === 'N/A' ? noImageFound : movie.Poster}
+          alt={data.Title}
+        />
         <div className={clsx('movie__infoWrapper')}>
           <div
             className={clsx(

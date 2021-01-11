@@ -1,0 +1,28 @@
+.favourites {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.favourites__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.favourite {
+  display: flex;
+  align-items: center;
+  background-color: #374151;
+  margin: 0.5rem;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.favourite__poster {
+  width: 4rem;
+}
+
+.favourite__title {
+  margin-left: 1rem;
+}
