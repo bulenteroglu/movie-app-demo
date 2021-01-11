@@ -14,13 +14,13 @@ export default function Toggle({ checked, setChecked }: Props) {
   return (
     <label className='toggle'>
       <span
+        onClick={handleClick}
         role='checkbox'
         tabIndex={0}
         aria-checked={checked}
         className={clsx('toggle__main', checked && 'checked')}
       >
         <span
-          onClick={handleClick}
           aria-hidden='true'
           className={clsx('toggle__button', checked && 'toggle__right')}
         ></span>

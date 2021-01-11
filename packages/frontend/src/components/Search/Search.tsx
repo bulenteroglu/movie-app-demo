@@ -13,16 +13,16 @@ export default function Search({ checked, setData, setSearched }: Props) {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    axios
-      .get(
+    async function fetchAPI() {
+      const { data } = await axios.get(
         `http://www.omdbapi.com/?${
           checked ? `t=${userSearch}` : `i=${userSearch}`
         }&apikey=3901aa62`
-      )
-      .then((res) => {
-        setData(res.data);
-      });
+      );
+      setData(data);
+    }
 
+    fetchAPI();
     setSearched(true);
     setUserSearch('');
   }

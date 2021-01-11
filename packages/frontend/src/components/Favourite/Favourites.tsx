@@ -6,8 +6,6 @@ type Props = {
 };
 
 function FavouriteMovie({ movie }: any) {
-  console.log(movie);
-
   return (
     <div className='favourite'>
       <img
